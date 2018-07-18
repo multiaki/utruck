@@ -1,0 +1,32 @@
+service: utruck
+provider:
+  name: aws
+  runtime: nodejs6.10
+  timeout: 10
+
+functions:
+  profiles:
+      handler: src/profiles.profiles
+      name: ${self:provider.stage}-profile
+      description: Utruck driver profiles
+      events:
+        - http:
+            path:   profiles
+            method: get
+            cors:   true
+        - http:
+            path:   profiles/create
+            method: post
+            cors:   trueprofiles:
+      handler: src/profiles.profiles
+      name: ${self:provider.stage}-profile
+      description: Utruck driver profiles
+      events:
+        - http:
+            path:   profiles
+            method: get
+            cors:   true
+        - http:
+            path:   profiles/create
+            method: post
+            cors:   true
